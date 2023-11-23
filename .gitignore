@@ -2,3 +2,6 @@
 *.iml
 bin/
 obj/
+
+## c++ executable
+*.out
