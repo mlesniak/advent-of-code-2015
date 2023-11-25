@@ -3,7 +3,8 @@
 
 using namespace std;
 
-int main() {
+int main()
+{
     int floor = 0;
     int charPos = 1;
     char n;
@@ -11,10 +12,11 @@ int main() {
 
     while (fileIn >> n)
     {
-        
-        if (n == '(') {
+        if (n == '(')
+        {
             floor++;
-        } else if (n == ')')
+        }
+        else if (n == ')')
         {
             floor--;
         }
@@ -22,9 +24,7 @@ int main() {
         {
             cout << charPos << endl;
         }
-        
         charPos++;
-        
     }
     cout << floor << endl;
 }
