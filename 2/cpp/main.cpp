@@ -16,6 +16,7 @@ int main() {
 
     fstream fileIn("input.txt", fstream::in);
     int totalArea = 0;
+    int totalRibbonLenght = 0;
     // read all dimension from file
     std::string n;
     while (fileIn >> n)
@@ -28,6 +29,7 @@ int main() {
         auto w = std::stoi(n.substr(firstX + 1, secondX));
         auto h = std::stoi(n.substr(secondX + 1, n.length()));
 
+        
         //cout << l << " " << w << " " << h << endl;
         // 2*l*w + 2*w*h + 2*h*l
         auto first = l*w;
@@ -47,8 +49,41 @@ int main() {
         {
             packetArea += third;
         }
+        
+        //ribbon section
+        int packetRibbon = l*w*h;
+        if (2*l > 2*w && 2*l > 2*h)
+        {
+            packetRibbon += 2*w + 2*h;
+        }
+        else if (2*w > 2*l && 2*w > 2*h)
+        {
+            packetRibbon += 2*l + 2*h;
+        }
+        else if (2*h > 2*l && 2*h > 2*w)
+        {
+            packetRibbon += 2*l + 2*w;
+        }
+        else if (2*l == 2*w && 2*l > 2*h)
+        {
+            packetRibbon += 2*l + 2*h;
+        }
+        else if (2*l == 2*h && 2*l > 2*w)
+        {
+            packetRibbon += 2*l + 2*w;
+        }
+        else if (2*w == 2*h && 2*w > 2*l)
+        {
+            packetRibbon += 2*l + 2*w;
+        }
+        else if (2*w == 2*h && 2*w == 2*l)
+        {
+            packetRibbon += 2*l + 2*w;
+        }
+        totalRibbonLenght += packetRibbon;
 
         totalArea += packetArea;
     }
     cout << totalArea << endl;
+    cout << totalRibbonLenght << endl;
 }
