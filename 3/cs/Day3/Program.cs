@@ -6,14 +6,12 @@ public class Day3
     public static void Main(string[] args)
     {
         string directions = File.ReadAllText("input.txt");
-        // Console.WriteLine(directions);
 
         var visitedHouses = new Dictionary<Position, int>();
 
-
         var santaStart = new Position(0, 0);
         var roboStart = new Position(0, 0);
-        // 2, since robo is also there
+        // 2, since both robo and santa visit the first house.
         visitedHouses[santaStart] = 2;
 
         for (int idx = 0; idx < directions.Length; idx++)
